@@ -34,7 +34,7 @@ To run Reminder, ensure you have the following installed on your system:
 
 ## Download
 
-Prebuilt binaries for Linux, macOS, and Windows are available on the [Releases](https://github.com/lrqtech/reminder/releases) page.
+Prebuilt binaries for Linux, macOS, and Windows are available on the releases page.
 
 1. Go to the [Releases](https://github.com/lrqtech/reminder/releases).
 2. Download the binary for your platform:
