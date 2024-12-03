@@ -29,11 +29,12 @@ jobs:
       - name: Build Reminder app
         run: |
           mkdir -p build
-          FILENAME=reminder-${{ matrix.os }}-${{ matrix.arch }}
           if [ "${{ matrix.os }}" == "windows-latest" ]; then
-            FILENAME="${FILENAME}.exe"
+            FILENAME="reminder-${{ matrix.os }}-${{ matrix.arch }}.exe"
+          else
+            FILENAME="reminder-${{ matrix.os }}-${{ matrix.arch }}"
           fi
-          GOOS=${{ matrix.os == 'ubuntu-latest' && 'linux' || matrix.os == 'macos-latest' && 'darwin' || 'windows'}} \
+          GOOS=${{ matrix.os == 'ubuntu-latest' && 'linux' || matrix.os == 'macos-latest' && 'darwin' || 'windows' }} \
           GOARCH=${{ matrix.arch }} CGO_ENABLED=0 \
           go build -ldflags "-s -w" -o build/$FILENAME
 
@@ -41,8 +42,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
         run: |
-          FILENAME=reminder-${{ matrix.os }}-${{ matrix.arch }}
           if [ "${{ matrix.os }}" == "windows-latest" ]; then
-            FILENAME="${FILENAME}.exe"
+            FILENAME="reminder-${{ matrix.os }}-${{ matrix.arch }}.exe"
+          else
+            FILENAME="reminder-${{ matrix.os }}-${{ matrix.arch }}"
           fi
           gh release upload "${{ github.event.release.tag_name }}" "build/$FILENAME" --clobber
