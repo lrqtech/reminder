@@ -40,7 +40,7 @@ Prebuilt binaries for Linux, macOS, and Windows are available on the releases pa
 2. Download the binary for your platform:
     - **Linux**: `reminder-linux-amd64` or `reminder-linux-arm64`
     - **macOS**: `reminder-darwin-amd64` or `reminder-darwin-arm64`
-    - **Windows**: `reminder-windows-amd64.exe` or `reminder-windows-arm64.exe`
+    - **Windows**: `reminder-windows-amd64.exe`
 
 3. Make the binary executable (Linux/macOS):
    ```bash
