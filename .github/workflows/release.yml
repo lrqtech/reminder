@@ -40,6 +40,7 @@ jobs:
           go build -ldflags "-s -w" -o build/$FILENAME
 
       - name: Upload release assets
+        shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
         run: |
